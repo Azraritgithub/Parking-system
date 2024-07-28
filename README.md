@@ -1,6 +1,6 @@
                                           parking managemnet system   
 
-A parking management system is a software application designed to efficiently manage parking spaces in various facilities such as parking lots, garages, or outdoor parking areas. The primary goal of a parking management system is to optimize the utilization of available parking spaces, enhance convenience for users, and streamline the overall parking process. parking management system enhances the efficiency, safety, and convenience of parking operations for both facility operators and users, contributing to a better urban mobility experience.
+A parking management system is a software application designed to efficiently manage parking spaces in various facilities such as parking lots, garages, or outdoor parking areas. The primary goal of a parking management system is to optimize the utilization of available parking spaces, enhance convenience for users, and streamline the overall parking process. parking management system enhances the efficiency, safety, and convenience of parking operations for both facility operators and users, contributing to a better urban mobility experience in the country.
 
                                                     Features 
 
