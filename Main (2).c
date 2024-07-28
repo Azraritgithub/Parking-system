@@ -1,40 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define file name for storing data
-#define FILENAME "data.txt"
-
 // Global variables for tracking counts and amounts
 int nob = 0, noc = 0, noE = 0, noby = 0, count = 0;
 float amt = 0;
-
-// Function to load data from the file
-void LoadData() {
-    FILE *fp = fopen(FILENAME, "r");
-    if (fp != NULL) {
-        fscanf(fp, "%d %d %d %d %d %f", &nob, &noc, &noE, &noby, &count, &amt);
-        fclose(fp);
-    } else {
-        // File doesn't exist or couldn't be opened, initialize default values
-        nob = 0;
-        noc = 0;
-        noE = 0;
-        noby = 0;
-        count = 0;
-        amt = 0;
-    }
-}
-
-// Function to save data to the file
-void SaveData() {
-    FILE *fp = fopen(FILENAME, "w");
-    if (fp != NULL) {
-        fprintf(fp, "%d %d %d %d %d %f", nob, noc, noE, noby, count, amt);
-        fclose(fp);
-    } else {
-        printf("Error opening file for writing.\n");
-    }
-}
 
 // Function to add a bus
 void addBus() {
@@ -86,7 +55,6 @@ void resetData() {
     noby = 0;
     count = 0;
     amt = 0;
-    SaveData(); // Save the reset state to file
     printf("\nData reset successfully.");
 }
 
@@ -112,7 +80,7 @@ int showMenu() {
 
 // Main function
 int main() {
-    LoadData(); // Load data from file at the beginning
+    // No need to load data from file since we're not using file handling
 
     while (1) {
         int choice = showMenu();
@@ -136,7 +104,6 @@ int main() {
                 resetData();
                 break;
             case 7:
-                SaveData(); // Save data before exiting
                 printf("\nExiting...");
                 exit(0);
             default:
