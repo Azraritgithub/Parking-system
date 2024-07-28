@@ -1,10 +1,12 @@
 #include "main.h"
+#include <stdio.h>
 
-// Function to reset count and total amount for each vehicle type to zero
-void reset() {
-    // Iterate through each vehicle type and reset count and amount to zero
-    for (int i = 0; i < NUM_VEHICLE_TYPES; i++) {
-        vehicles[i].count = 0;
-        vehicles[i].amount = 0;
-    }
+void resetData() {
+    nob = 0;
+    noc = 0;
+    noE = 0;
+    noby = 0;
+    count = 0;
+    amt = 0;
+    printf("\nData reset successfully.");
 }

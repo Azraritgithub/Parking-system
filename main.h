@@ -1,15 +1,20 @@
-#ifndef MAIN_H_INCLUDED
-#define MAIN_H_INCLUDED
-#include <stdio.h>
-// Define a structure to represent a vehicle
-struct Vehicle {
-    int count;    // Variable to store the count of vehicles
-    float amount; // Variable to store the total amount associated with vehicles
-};
+#ifndef MAIN_H
+#define MAIN_H
 
-// Define an enumeration to represent different types of vehicles
-enum VehicleType { BUS = 0, CAR, ERIKSHA, MOTOR_BIKE, NUM_VEHICLE_TYPES };
+// Global variables for tracking counts and amounts
+extern int nob, noc, noE, noby, count;
+extern float amt;
 
-// Declare an array to store data for each vehicle type
-struct Vehicle vehicles[NUM_VEHICLE_TYPES];
-#endif
+// Function declarations
+void addBus();
+void addCar();
+void addERiksha();
+void addMotorbike();
+void displayData();
+void resetData();
+int showMenu();
+void saveData();
+void loadData();
+void displayData();
+
+#endif // MAIN_H

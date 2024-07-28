@@ -1,51 +1,46 @@
-#include <stdio.h>  // Include standard input-output functions header file
-#include <conio.h>  // Include console input-output functions header file
-#include <stdlib.h> // Include standard library functions header file
-
-
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "add.c"
 #include "count and total.c"
-#include "reset.c"
+#include "file.c"
+#include "global.c"
 #include "menu.c"
+#include "reset.c"
 
 
-
-
-
-
-
-
-
-// Main function
 int main() {
-    // Main loop for displaying the menu and performing actions based on user's choice
+    loadData();  // Load data from file
     while (1) {
-        switch (menu()) {
+        int choice = showMenu();
+        switch (choice) {
             case 1:
-                addVehicle(BUS);         // Add a bus
+                addBus();
                 break;
             case 2:
-                addVehicle(CAR);         // Add a car
+                addCar();
                 break;
             case 3:
-                addVehicle(ERIKSHA);     // Add an Eriksha
+                addERiksha();
                 break;
             case 4:
-                addVehicle(MOTOR_BIKE);  // Add a motor bike
+                addMotorbike();
                 break;
             case 5:
-                display();               // Display vehicle data
+                displayData();
                 break;
             case 6:
-                reset();                 // Reset vehicle data
+                resetData();
                 break;
             case 7:
-                exit(0);                 // Exit the program
+                saveData();  // Save data to file
+                printf("\nExiting...");
+                exit(0);
             default:
-                printf("\nWrong choice"); // Print message for wrong choice
+                printf("\nInvalid choice. Please try again.");
         }
-        getch(); // Wait for user input before continuing
+        printf("\nPress Enter to continue...");
+        while (getchar() != '\n'); // Discard any remaining characters in the buffer
     }
-    return 0; // Return 0 to indicate successful program execution
+    return 0;
 }

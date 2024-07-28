@@ -1,15 +1,20 @@
 #include "main.h"
-// Function to display menu options and prompt user for input
-int menu() {
-    int ch;
-    printf("\n[1] Add bus");        // Option to add a bus
-    printf("\n[2] Add car");         // Option to add a car
-    printf("\n[3] Add Eriksha");     // Option to add an Eriksha
-    printf("\n[4] Add motor bike");  // Option to add a motor bike
-    printf("\n[5] Display");         // Option to display vehicle data
-    printf("\n[6] Reset");           // Option to reset vehicle data
-    printf("\n[7] Exit");            // Option to exit the program
+#include <stdio.h>
+
+int showMenu() {
+    int choice;
+    printf("\nMenu:");
+    printf("\n[1] Add Bus");
+    printf("\n[2] Add Car");
+    printf("\n[3] Add ERiksha");
+    printf("\n[4] Add Motorbike");
+    printf("\n[5] Display Data");
+    printf("\n[6] Reset Data");
+    printf("\n[7] Exit");
     printf("\nEnter your choice: ");
-    scanf("%d", &ch); // Read user's choice
-    return ch;        // Return user's choice
+    scanf("%d", &choice);
+
+    while (getchar() != '\n'); // Discard any remaining characters in the buffer
+
+    return choice;
 }
