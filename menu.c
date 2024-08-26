@@ -1,20 +1,35 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
+#include "add.c"    // Ensure function prototypes are available in main.h
+#include "remove.c"
+#include "list.c"
 
-int showMenu() {
+void displayMenu() {
     int choice;
-    printf("\nMenu:");
-    printf("\n[1] Add Bus");
-    printf("\n[2] Add Car");
-    printf("\n[3] Add ERiksha");
-    printf("\n[4] Add Motorbike");
-    printf("\n[5] Display Data");
-    printf("\n[6] Reset Data");
-    printf("\n[7] Exit");
-    printf("\nEnter your choice: ");
-    scanf("%d", &choice);
 
-    while (getchar() != '\n'); // Discard any remaining characters in the buffer
+    while (1) {
+        printf("Parking System Management\n");
+        printf("1. Add Car\n");
+        printf("2. Remove Car\n");
+        printf("3. List Cars\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-    return choice;
+        switch (choice) {
+            case 1:
+                addCar();
+                break;
+            case 2:
+                removeCar();
+                break;
+            case 3:
+                listCars();
+                break;
+            case 4:
+                exit(0);
+            default:
+                printf("Invalid choice, please try again.\n");
+        }
+    }
 }

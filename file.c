@@ -1,23 +1,31 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
-void saveData() {
-    FILE *file = fopen("data.txt", "w");
-    if (file == NULL) {
-        printf("\nError opening file for writing.");
-        return;
+void saveToFile(Car cars[], int count) {
+    FILE *file = fopen(FILENAME, "w");
+    if (!file) {
+        perror("Failed to open file");
+        exit(EXIT_FAILURE);
     }
-    fprintf(file, "%d %d %d %d %d %.2f\n", nob, noc, noE, noby, count, amt);
+
+    for (int i = 0; i < count; i++) {
+        fprintf(file, "%d %s\n", cars[i].slot_number, cars[i].plate_number);
+    }
+
     fclose(file);
-    printf("\nData saved successfully.");
 }
 
-void loadData() {
-    FILE *file = fopen("data.txt", "r");
-    if (file == NULL) {
-        printf("\nNo data file found. Starting with default values.");
-        return;
+int loadFromFile(Car cars[]) {
+    FILE *file = fopen(FILENAME, "r");
+    if (!file) {
+        return 0; // No file exists, so no cars are loaded
     }
-    fscanf(file, "%d %d %d %d %d %f", &nob, &noc, &noE, &noby, &count, &amt);
+
+    int count = 0;
+    while (fscanf(file, "%d %19s", &cars[count].slot_number, cars[count].plate_number) == 2) {
+        count++;
+    }
+
     fclose(file);
+    return count;
 }

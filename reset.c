@@ -1,12 +1,14 @@
-#include "main.h"
 #include <stdio.h>
+#include "file.c"  // Including file operations to reset data
 
-void resetData() {
-    nob = 0;
-    noc = 0;
-    noE = 0;
-    noby = 0;
-    count = 0;
-    amt = 0;
-    printf("\nData reset successfully.");
+void resetParkingLot() {
+    FILE *file = fopen(FILENAME, "w");
+    if (!file) {
+        perror("Failed to open file");
+        exit(EXIT_FAILURE);
+    }
+
+    // Simply clear the file content
+    fclose(file);
+    printf("Parking lot reset successfully.\n");
 }

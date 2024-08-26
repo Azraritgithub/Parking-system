@@ -1,20 +1,19 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-// Global variables for tracking counts and amounts
-extern int nob, noc, noE, noby, count;
-extern float amt;
+#define MAX_CARS 100
+#define FILENAME "data.txt"
 
-// Function declarations
-void addBus();
+typedef struct {
+    char plate_number[20];
+    int slot_number;
+} Car;
+
 void addCar();
-void addERiksha();
-void addMotorbike();
-void displayData();
-void resetData();
-int showMenu();
-void saveData();
-void loadData();
-void displayData();
+void removeCar();
+void listCars();
+void saveToFile(Car cars[], int count);
+int loadFromFile(Car cars[]);
 
-#endif // MAIN_H
+#endif
+
